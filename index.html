@@ -94,7 +94,7 @@
                                     <div class="cancel flex justify-center align-center ">Cancella messaggio</div>
                                 </div>
                             </div>
-                            <p class="orario ">16:13</p>
+                            <p class="orario ">{{message.date}}</p>
                         </div>
                         <div
                          v-if="message.status === 'received'"
@@ -115,7 +115,10 @@
                             <a href="#"><i class="fa-regular fa-face-smile"></i></a>
                         </div>
                         <div class="scrivi flex ">
-                            <input type="text" placeholder="    Scrivi un messaggio" id="txt">
+                            <input 
+                            v-model="newMsg"
+                            @keyup.enter="sendMsg"
+                            type="text" placeholder="    Scrivi un messaggio" id="txt">
                         </div>
                         <div class="vocale flex justify-center align-center ">
                             <a href="#"><i class="fa-solid fa-microphone"></i></a>

@@ -167,6 +167,7 @@ createApp({
                 }
             ],
             indiceChat: 0,
+            newMsg: '',
         }
     },
 
@@ -179,6 +180,24 @@ createApp({
     methods:{
         chatSelezionata(indice){
             this.indiceChat = indice;
+        },
+
+        sendMsg(){
+            if(this.newMsg){
+                const msg = this.contacts[this.indiceChat]
+                    msg.messages.push({
+                        message: this.newMsg,
+                        status: 'sent'
+                    })
+                    
+                this.newMsg = ''
+                setTimeout(() => {
+                    msg.messages.push({
+                        message: "OK !",
+                        status: 'received'
+                    })
+                }, 1000);
+            }
         }
     }
 
