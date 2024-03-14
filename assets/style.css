@@ -251,6 +251,7 @@ body{
 
 .users .text{
     width: calc(100% - 50px - 30px - 15px - 35px);
+    max-height: 80px;
 }
 
 .col-large{
