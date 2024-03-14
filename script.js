@@ -165,8 +165,20 @@ createApp({
                         }
                     ],
                 }
-            ]
-            
+            ],
+            indiceChat: 0,
+        }
+    },
+
+    computed:{
+        chatAttiva(){
+            return this.contacts[this.indiceChat].messages;
+        }
+    },
+
+    methods:{
+        chatSelezionata(indice){
+            this.indiceChat = indice;
         }
     }
 
