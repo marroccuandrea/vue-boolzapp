@@ -48,7 +48,7 @@
                     <div class="users  flex column">
                         <div 
                         v-for="(utente, indice) in searchUtente"
-                        
+                        v-show="utente.visible" 
                         @click="chatSelezionata(indice)"
                          class="user flex ">
                             <div class="image ">

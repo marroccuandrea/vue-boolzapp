@@ -178,11 +178,22 @@ createApp({
         },
 
         searchUtente(){
-            return this.contacts.filter(utente => 
-             utente.name.toLowerCase().includes(this.userSearch.toLowerCase()))
+            this.contacts.forEach(utente => {
+                if(utente.name.toLowerCase().includes(this.userSearch.toLowerCase())){
+                    utente.visible = true;
+                }else{
+                    utente.visible=false;
+                }
+            })
+            return this.contacts;
+
+
+            },
+            
          
         },
-    },
+        
+    
 
 
     methods:{
@@ -212,3 +223,6 @@ createApp({
     }
 
 }).mount('#app')
+
+
+
