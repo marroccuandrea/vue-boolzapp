@@ -168,14 +168,22 @@ createApp({
             ],
             indiceChat: 0,
             newMsg: '',
+            userSearch:''
         }
     },
 
     computed:{
         chatAttiva(){
             return this.contacts[this.indiceChat].messages;
-        }
+        },
+
+        searchUtente(){
+            return this.contacts.filter(utente => 
+             utente.name.toLowerCase().includes(this.userSearch.toLowerCase()))
+         
+        },
     },
+
 
     methods:{
         chatSelezionata(indice){
@@ -200,7 +208,7 @@ createApp({
             }
         },
 
-        
+
     }
 
 }).mount('#app')

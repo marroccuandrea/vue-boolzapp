@@ -40,11 +40,15 @@
                     </div>
                     <div class="search flex ">
                         <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
-                        <input type="text" placeholder="     Cerca o inizia una nuova chat" id="cerca">
+                        <input
+                        v-model="userSearch"
+                         type="text" placeholder="     Cerca o inizia una nuova chat" id="cerca">
                     </div>
 
                     <div class="users  flex column">
-                        <div v-for="(utente, indice) in contacts"
+                        <div 
+                        v-for="(utente, indice) in searchUtente"
+                        
                         @click="chatSelezionata(indice)"
                          class="user flex ">
                             <div class="image ">
@@ -66,7 +70,8 @@
                     <div class="nav  flex justify-between ">
                         <div class="img-status flex ">
                             <div class="image-top ">
-                                <img :src="contacts[indiceChat].avatar" alt="">
+                                <img 
+                                :src="contacts[indiceChat].avatar" alt="">
                             </div>
                             <div class="accesso flex column justify-center ">
                                 <h3>{{contacts[indiceChat].name}}</h3>
@@ -107,7 +112,7 @@
                                     <div class="cancel flex justify-center align-center ">Cancella messaggio</div>
                                 </div>
                             </div>
-                            <p class="orario ">16:13</p>
+                            <p class="orario ">{{message.date}}</p>
                         </div>
                     </div>
                     <div class="nav-btm  flex">
