@@ -1,5 +1,7 @@
 const { createApp } = Vue;
 
+const { DateTime } = luxon;
+
 createApp({
     data(){
         return{
@@ -168,7 +170,8 @@ createApp({
             ],
             indiceChat: 0,
             newMsg: '',
-            userSearch:''
+            userSearch:'',
+            dataTime:''
         }
     },
 
@@ -206,20 +209,25 @@ createApp({
                 const msg = this.contacts[this.indiceChat]
                     msg.messages.push({
                         message: this.newMsg,
-                        status: 'sent'
+                        status: 'sent',
+                        date: this.dataTime,
                     })
                     
                 this.newMsg = ''
                 setTimeout(() => {
                     msg.messages.push({
                         message: "OK !",
-                        status: 'received'
+                        status: 'received',
+                        date: this.dataTime,
                     })
                 }, 1000);
             }
         },
 
 
+    },
+    mounted(){
+        this.dataTime = DateTime.now().setLocale('it').toFormat('dd/mm/yyyy hh:mm')
     }
 
 }).mount('#app')
