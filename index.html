@@ -66,10 +66,10 @@
                     <div class="nav  flex justify-between ">
                         <div class="img-status flex ">
                             <div class="image-top ">
-                                <img src="img/avatar_1.jpg" alt="">
+                                <img :src="contacts[indiceChat].avatar" alt="">
                             </div>
                             <div class="accesso flex column justify-center ">
-                                <h3>Michele</h3>
+                                <h3>{{contacts[indiceChat].name}}</h3>
                                 <p>Ultimo accesso oggi alle 16:26</p>
                             </div>
                         </div>
